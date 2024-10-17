@@ -1,0 +1,59 @@
+﻿<Window x:Class="CodeFirstWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CodeFirstWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="8*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Button Name="btnSort_Cancel" Click="btnSort_Cancel_Click">CANCEL</Button>
+            <ComboBox Grid.Column="1" VerticalAlignment="Center" ItemsSource="{Binding}"
+                      SelectedValuePath="PostId"
+                      DisplayMemberPath="PostId"
+                      x:Name="cbSort"
+                      SelectionChanged="cbSort_SelectionChanged"/>
+        </Grid>
+
+        <DataGrid
+            Grid.Row="1"
+            Name="dgEmp"
+            AutoGenerateColumns="False" Margin="0,18,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding EmployeeId}"
+                    Header="Id" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding FullName}"
+                    Header="FullName" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Gender}"
+                    Header="Gender" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Passport}"
+                    Header="Passport" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Phone}"
+                    Header="Phone" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding PostId}"
+                    Header="PostId" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
